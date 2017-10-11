@@ -48,7 +48,7 @@ Then in your template, you can use the `async` pipe to unwrap the binding.
 
 ```ts
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -58,7 +58,7 @@ import { Observable } from 'rxjs/Observable';
   `,
 })
 export class AppComponent {
-  item: FirebaseObjectObservable<any>;
+  item: AngularFireObject<any>;
   constructor(db: AngularFireDatabase) {
     this.item = db.object('item').valueChanges();
   }
